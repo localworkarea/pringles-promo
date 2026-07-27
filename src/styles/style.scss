@@ -1,0 +1,118 @@
+
+@use "includes/variables.scss";
+
+// Підключення загальних віддалених шрифтів (Google Fonts)
+
+// Стилі тега BODY
+body {
+	min-width: #{$minWidth}px;
+	color: $mainColor;
+	font-family: $fontFamily;
+	font-size: #{$fontSize}px;
+
+	// background-color: var(--color-yellow);
+
+	// Скролл заблоковано
+	[data-att-scrolllock] & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	// Сайт завантажений
+	[data-att-loaded] & {
+	}
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+
+	// Притискаємо footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фікс для слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+
+
+
+
+// 1440 = ширина макету, padding 20 з боків → контент рівно 1400,
+// як фрейми в макеті. box-sizing: border-box заданий у reset.css
+[class*="__container"] {
+	width: 100%;
+	max-width: 1440px;
+	padding-inline: 20px;
+	margin-inline: auto;
+}
+
+.ibg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+	&--cn {
+		object-fit: contain;
+	}
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 3px;
+  }
+}
+
+.pd-top {
+	padding-top: 100px;
+	@media (min-width:toEm($mobileSmall)){
+		padding-top: 120px;
+	}
+}
+
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 12px;
+	padding: 16px 30px;
+	background-color: var(--color-yellow);
+	color: var(--color-burgundy);
+	font-size: 16px;
+	line-height: normal;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	@media (min-width: toEm(820.98)) {
+		padding: 20px 30px;
+		font-size: 20px;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--color-white);
+		}
+	}
+
+	// .btn--accent
+	&--accent {
+		background-color: var(--color-red);
+		color: var(--color-yellow);
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--color-red-dark);
+				color: var(--color-white);
+			}
+		}
+	}
+}

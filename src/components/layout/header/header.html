@@ -1,0 +1,21 @@
+<header data-att-header data-att-header-scroll="50" class="header">
+	<div class="header__container">
+		<a href="index.html" class="header__logo" aria-label="Pringles — на головну">
+			<img src="@img/icons/logo.png" fetchpriority="high" width="61" height="76" alt="Pringles">
+		</a>
+		<div class="header__menu menu">
+			<button type="button" data-att-menu class="menu__icon icon-menu" aria-label="Меню" aria-controls="menu-body">
+				<span aria-hidden="true" class="icon-menu__body"><span></span></span>
+				<span aria-hidden="true" class="icon-menu__menu">Меню</span>
+			</button>
+			<nav id="menu-body" class="menu__body" aria-label="Головне меню">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="index.html" class="menu__link [[active === 'Home' ? 'active' : '']]" aria-current="[[active === 'Home' ? 'page' : 'false']]" aria-label="Головна сторінка акції">Головна</a></li>
+					<li class="menu__item"><a href="winners.html" class="menu__link [[active === 'Winners' ? 'active' : '']]" aria-current="[[active === 'Winners' ? 'page' : 'false']]" aria-label="Переможці акції">Переможці</a></li>
+					<li class="menu__item"><a href="rules.html" class="menu__link [[active === 'Rules' ? 'active' : '']]" aria-current="[[active === 'Rules' ? 'page' : 'false']]" aria-label="Терміни та умови акції">Терміни та умови</a></li>
+					<li class="menu__item"><a href="files/brand-book.pdf" class="menu__link" type="application/pdf" download aria-label="Повні правила акції — завантажити PDF">Повні правила акції</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>

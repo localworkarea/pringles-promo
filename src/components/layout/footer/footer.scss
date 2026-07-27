@@ -1,0 +1,145 @@
+// .footer
+.footer {
+	position: relative;
+	z-index: 5;
+	color: var(--color-burgundy);
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--color-white);
+		clip-path: polygon(50% 25px, 100% 0, 100% 100%, 0 100%, 0 0);
+		pointer-events: none;
+		@media (min-width:toEm($tablet)){
+			clip-path: polygon(50% 100px, 100% 0, 100% 100%, 0 100%, 0 0);
+		}
+		@media (max-width:toEm($tablet)) and (min-width:toEm($mobileSmall)){
+			clip-path: polygon(50% 60px, 100% 0, 100% 100%, 0 100%, 0 0);
+		}
+	}
+
+	// .footer__container
+	&__container {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		padding-top: 96px;
+		padding-bottom: 74px;
+		@media (min-width: toEm($mobileSmall)) {
+			flex-direction: row;
+			justify-content: center;
+			gap: 12px;
+			padding-top: 146px;
+			padding-bottom: 57px;
+		}
+	}
+
+	// .footer__info
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		@media (min-width: toEm($mobileSmall)) {
+			flex: 0 1 392px;
+		}
+	}
+
+	// .footer__brand
+	&__brand {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	// .footer__logo
+	&__logo {
+		flex: 0 0 auto;
+		img {
+			width: 61px;
+			height: 76px;
+			transition: transform 0.45s ease;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	// .footer__site
+	&__site {
+		font-size: 16px;
+	}
+
+	// .footer__promo
+	&__promo {
+		font-size: 12px;
+		@media (min-width: toEm($mobileSmall)) {
+			font-size: 14px;
+		}
+	}
+
+	// .footer__legal
+	&__legal {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		font-size: 12px;
+	}
+
+	// .footer__nav
+	&__nav {
+		@media (min-width: toEm($mobileSmall)) {
+			order: -1;
+			flex: 0 0 190px;
+		}
+	}
+
+	// .footer__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	// .footer__item
+	&__item {
+		display: flex;
+	}
+
+	// .footer__link
+	&__link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 36px;
+		border: 1px solid var(--color-burgundy);
+		border-radius: 40px;
+		padding: 10px 20px;
+		background-color: var(--color-burgundy);
+		color: var(--color-white);
+		font-size: 14px;
+		text-align: center;
+		cursor: pointer;
+		transition: color 0.3s ease, background-color 0.3s ease;
+		@media (min-width: toEm($mobileSmall)) {
+			justify-content: flex-start;
+			text-align: left;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--color-white);
+				color: var(--color-burgundy);
+			}
+		}
+	}
+}
