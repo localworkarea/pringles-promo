@@ -1,4 +1,4 @@
-import { n as bodyLockToggle, t as bodyLockStatus } from "./common.min.js";
+import { n as bodyLockStatus, r as bodyLockToggle } from "./common.min.js";
 //#region \0vite/modulepreload-polyfill.js
 (function polyfill() {
 	const relList = document.createElement("link").relList;

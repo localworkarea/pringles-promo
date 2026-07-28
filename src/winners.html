@@ -19,5 +19,18 @@
 		<include src="@components/layout/footer/footer.html" locals='{}'></include>
 	</block>
 	<block name="popup">
+		<link rel="stylesheet" href="@components/layout/popup/popup.scss">
+		<div data-att-popup="video" aria-hidden="true" class="popup popup--video">
+			<div data-att-popup-wrapper class="popup__wrapper">
+				<div data-att-popup-body class="popup__body">
+					<button data-att-popup-close type="button" class="popup__close" aria-label="Закрити відео">
+						<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1.73 1.49 21.55 21.03" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21.27 1.49 1.45 21.03" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+					</button>
+					<div class="popup__video-wr">
+						<video data-att-popup-video-player class="popup__video" controls playsinline preload="none"></video>
+					</div>
+				</div>
+			</div>
+		</div>
 	</block>
 </template>

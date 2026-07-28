@@ -1,3 +1,247 @@
-// .reg
-.reg {
+.reg-hero {
+  position: relative;
+  border-radius: 40px 40px 0 0;
+  background-color: var(--color-red);
+
+   margin-bottom: -25px;
+   padding-bottom: 25px;
+   @media (min-width:toEm($tablet)){
+     margin-bottom: -100px;
+     padding-bottom: 100px;
+    }
+    @media (max-width:toEm($tablet)) and (min-width:toEm($mobileSmall)){
+      margin-bottom: -60px;
+      padding-bottom: 60px;
+    }
+    
+		// .reg-hero__container
+		&__container {
+      position: relative;
+      z-index: 1;
+      &::before,
+      &::after {
+        content:'';
+        position: absolute;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+      &::before {
+          @media (min-width:toEm(750.98)){
+             top: -32%;
+             right: -17%;
+             width: 47vw;
+             max-width: 682px;
+             aspect-ratio: 682/721;
+             background-image: url("@img/box-hero-1x.png");
+             background-image: image-set(
+               url("@img/box-hero-1x.png") 1x,
+               url("@img/box-hero-2x.png") 2x
+             );
+          }
+          @media (max-width: toEm(750.98)){
+            display: none;
+          }
+        }
+        &::after {
+          aspect-ratio: 670/769;
+          left: -20px;
+          
+          @media (min-width:toEm(750.98)){
+            left: 20px;
+            width: 47vw;
+            bottom: -135px;
+            max-width: 670px;
+            background-image: url("@img/pringles-form-pc-1x.png");
+            background-image: image-set(
+              url("@img/pringles-form-pc-1x.png") 1x,
+              url("@img/pringles-form-pc-2x.png") 2x
+              );
+          }
+          @media (max-width: toEm(750.98)){
+            position: relative;
+            width: 105vw;
+            bottom: -52px;
+            margin-top: -30px;
+            background-image: url("@img/pringles-form-mb-1x.png");
+            background-image: image-set(
+              url("@img/pringles-form-mb-1x.png") 1x,
+              url("@img/pringles-form-mb-2x.png") 2x
+            );
+          }
+        }
+        padding-top: 72px;
+        // padding-bottom: 420px;
+        @media (min-width:toEm(750.98)){
+          padding-top: 96px;
+          padding-bottom: 96px;
+        }
+      }
+
+		// .form-reg__main
+		&__main {
+      transition: opacity .2s ease, visibility .2s ease;
+      .form-sent & {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+		// .reg-hero__title
+		&__title {
+      margin-inline: auto;
+      text-align: center;
+      @include adaptiveValue("font-size", 96, 48,0,1440.98,360.98);
+      text-transform: uppercase;
+      font-family: var(--font-main);
+      color: var(--color-white);
+      margin-bottom: 36px;
+      @media (min-width:toEm($mobileSmall)){
+        max-width: 600px;
+      }
+		}
+
+		// .reg-hero__form
+		&__form {
+      @media (min-width:toEm($mobileSmall)){
+        max-width: 390px;
+        margin-inline: auto;
+      }
+		}
+    // .form-reg__msg
+    &__msg {
+      position: absolute;
+      z-index: 5;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      left: 50%;
+      top: 15%;
+      transform: translate(-50%,0%);
+      width: 100%;
+      @media (min-width:toEm(750.98)){
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+      .form-sent & {
+        transition: opacity .2s ease, visibility .2s ease;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+    }
+    
+    // .form-reg__msg-title
+    &__msg-title {
+       text-align: center;
+      @include adaptiveValue("font-size", 96, 48,0,1440.98,360.98);
+      text-transform: uppercase;
+      font-family: var(--font-main);
+      color: var(--color-white);
+      margin-bottom: 42px;
+    }
+    
+    // .form-reg__link
+    &__link {
+      display: flex;
+      margin-inline: auto;
+      width: 100%;
+      max-width: 320px;
+    }
+}
+
+
+.ask {
+   position: relative;
+  z-index: 6;
+
+     margin-bottom: -50px;
+   @media (min-width:toEm($tablet)){
+     margin-bottom: -100px;
+    //  padding-bottom: 100px;
+    }
+    @media (max-width:toEm($tablet)) and (min-width:toEm($mobileSmall)){
+      margin-bottom: -60px;
+      // padding-bottom: 60px;
+    }
+    
+
+
+  	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--color-white);
+		clip-path: polygon(50% 25px, 100% 0, 100% 100%, 0 100%, 0 0);
+		pointer-events: none;
+		@media (min-width:toEm($tablet)){
+			clip-path: polygon(50% 100px, 100% 0, 100% 100%, 0 100%, 0 0);
+		}
+		@media (max-width:toEm($tablet)) and (min-width:toEm($mobileSmall)){
+			clip-path: polygon(50% 60px, 100% 0, 100% 100%, 0 100%, 0 0);
+		}
+	}
+		// .ask__container
+
+		&__container {
+      position: relative;
+      z-index: 1;
+      padding-top: 96px;
+		  padding-bottom: 74px;
+		  @media (min-width: toEm($mobileSmall)) {
+		  	padding-top: 146px;
+		  	padding-bottom: 57px;
+		  }
+		}
+
+		// .ask__head
+		// Колір не задаю: #7b121c у макеті збігається з $mainColor на body
+		&__head {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-width: 594px;
+			margin-inline: auto;
+			margin-bottom: 24px;
+			gap: 12px;
+			text-align: center;
+			text-transform: uppercase;
+			@media (min-width: toEm($mobileSmall)) {
+				margin-bottom: 32px;
+				gap: 16px;
+			}
+		}
+
+		// .ask__title
+		// Мобільного макета в цього блоку немає — беру ту саму формулу,
+		// що й у .reg-hero__title, щоб обидва заголовки сторінки їхали однаково
+		&__title {
+			font-family: var(--font-main);
+			@include adaptiveValue("font-size", 96, 48, 0, 1440.98, 360.98);
+			line-height: 0.96;
+		}
+
+		// .ask__subtitle
+		&__subtitle {
+			max-width: 392px;
+			font-size: 18px;
+			line-height: normal;
+			@media (min-width: toEm($mobileSmall)) {
+				font-size: 24px;
+			}
+		}
+
+		// .ask__btn
+		&__btn {
+			display: flex;
+			width: 100%;
+			max-width: 594px;
+			margin-inline: auto;
+		}
 }

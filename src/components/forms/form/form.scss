@@ -1,0 +1,145 @@
+//<INPUT>
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.input {
+	display: block;
+	width: 100%;
+	border-radius: 12px;
+	padding: 14px 30px;
+	background-color: var(--color-white);
+	color: var(--color-burgundy);
+	font-size: 16px;
+	line-height: normal;
+	text-align: center;
+	caret-color: inherit;
+	@media (min-width: toEm($mobileSmall)) {
+		padding: 16px 30px;
+	}
+	&::placeholder {
+		color: var(--color-burgundy);
+		opacity: 1;
+	}
+	&.--form-focus {
+	}
+	&.--form-error {
+		box-shadow: inset 0 0 0 4px var(--color-yellow);
+	}
+}
+.input[placeholder]:not([data-att-placeholder-nohiden]) {
+	&::placeholder {
+		transition: opacity 0.3s;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+// textarea.input {
+// 	resize: vertical;
+// 	padding: 0px 0px;
+// }
+
+
+[data-att-form-error] {
+	margin-top: 4px;
+	color: var(--color-yellow);
+	font-size: 14px;
+	line-height: normal;
+	text-align: center;
+}
+
+
+.btn:disabled {
+	opacity: 0.9;
+	pointer-events: none;
+}
+
+
+[data-att-form-step] {
+	display: none;
+	&.--form-step-active {
+		display: block;
+	}
+}
+
+.form-reg {
+	// .form-reg__fieldset
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		gap: 8px;
+	}
+
+	// .form-reg__item
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		& + & {
+			margin-top: -4px;
+		}
+	}
+}
+
+
+.input-file {
+	position: relative;
+
+	// .input-file__input
+	&__input {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+	}
+
+	// .input-file__label
+	&__label {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		min-height: 104px;
+		border-radius: 12px;
+		padding: 16px 30px;
+		background-color: var(--color-white);
+		color: var(--color-burgundy);
+		font-size: 16px;
+		line-height: normal;
+		text-align: center;
+		cursor: pointer;
+		transition: box-shadow 0.3s ease;
+	}
+
+	// .input-file__icon
+	&__icon {
+		flex: 0 0 16px;
+		width: 16px;
+		height: 16px;
+		background: url("@img/icons/clip.svg") center / contain no-repeat;
+	}
+
+	// .input-file__name
+	&__name {
+		overflow: hidden;
+		max-width: 100%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	// .input-file.--form-error .input-file__label
+	&.--form-error &__label {
+		box-shadow: 0 0 0 2px var(--color-yellow);
+	}
+
+	&__input:focus-visible + &__label {
+		outline: 2px solid var(--color-yellow);
+		outline-offset: 2px;
+	}
+}

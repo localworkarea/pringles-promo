@@ -1,3 +1,57 @@
 <div data-att-reg class="reg pd-top">
-
+  <section class="reg-hero">
+    <div class="reg-hero__container">
+      <div class="reg-hero__main">
+        <h1 class="reg-hero__title">
+          Заповнюйте форму і отримайте шанс на круті подарунки
+        </h1>
+        <div class="reg-hero__form">
+          <form class="form-reg" data-att-form="dev" data-att-form-steps data-att-form-sentclass="form-sent" method="POST" action="#">
+            <div class="form-reg__section" data-att-form-step>
+              <fieldset class="form-reg__fieldset">
+                <div class="form-reg__item">
+                  <input required type="text" name="form[name]" aria-label="Ім’я" data-att-form-validatenow data-att-form-errtext="Введіть ваше ім'я" placeholder="Ім'я" class="input">
+                </div>
+                <div class="form-reg__item">
+                  <input required type="tel" name="form[tel]" aria-label="Номер телефону" inputmode="numeric" autocomplete="tel" data-att-form-phone pattern="\+38-\(0\d{2}\)-\d{3}-\d{2}-\d{2}" data-att-form-validatenow data-att-form-errtext="Введіть номер телефону" data-att-form-errtext-pattern="Вкажіть номер повністю" placeholder="Номер телефону" class="input">
+                </div>
+                <button type="button" class="form-reg__btn btn" data-att-form-next>Далі</button>
+              </fieldset>
+            </div>
+            <div class="form-reg__section" data-att-form-step>
+              <fieldset class="form-reg__fieldset">
+                <div class="form-reg__item input-file">
+                  <input required type="file" id="form-reg-file" name="form[file]" class="input-file__input" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" data-att-form-file data-att-form-file-max="10" data-att-form-validatenow data-att-form-errtext="Додайте фото чека">
+                  <label for="form-reg-file" class="input-file__label">
+                    <span class="input-file__icon" aria-hidden="true"></span>
+                    <span class="input-file__name" data-att-form-file-name>Додати чек</span>
+                  </label>
+                </div>
+                <button type="submit" class="form-reg__submit btn">Відправити</button>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="reg-hero__msg">
+        <p class="reg-hero__msg-title">
+          Дякую<br>за участь
+        </p>
+        <a href="index.html" class="reg-hero__link btn" aria-label="link">На головну</a>
+      </div>
+    </div>
+  </section>
+  <section class="ask">
+    <div class="ask__container">
+      <div class="ask__head">
+        <h2 class="ask__title">
+          Виникли питання?
+        </h2>
+        <p class="ask__subtitle">
+          напишіть нам і ми відповімо найближчим часом
+        </p>
+      </div>
+      <a href="mailto:office@example.ua" class="ask__btn btn btn--yellow-hover" aria-label="link">НАПИСАТИ НАМ</a>
+    </div>
+  </section>
 </div>

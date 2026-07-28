@@ -1,3 +1,433 @@
-// .winners
-.winners {
+
+.winners-hero {
+  position: relative;
+  border-radius: 40px 40px 0 0;
+  background-color: var(--color-red);
+  background-position: top center;
+  background-size: 100% auto;
+
+  margin-bottom: -25px;
+  padding-bottom: 25px;
+  @media (min-width:toEm($tablet)){
+    margin-bottom: -100px;
+    padding-bottom: 100px;
+  }
+  @media (max-width:toEm($tablet)) and (min-width:toEm($mobileSmall)){
+    margin-bottom: -60px;
+    padding-bottom: 60px;
+  }
+  @media (min-width:toEm($mobileSmall)){
+    background-image: url("@img/pattern/pringle-pattern-2.svg");
+    background-size: 1440px auto;
+  }
+  @media (max-width:toEm($mobileSmall)){
+    background-image: url("@img/pattern/pringle-pattern-2-mb.svg");
+  }
+
+		// .winners-hero__container
+		&__container {
+      position: relative;
+      z-index: 1;
+      padding-block: 72px;
+      @media (min-width:toEm($mobileSmall)){
+        padding-block: 96px;
+      }
+		}
+
+		// .winners-hero__title
+		&__title {
+      margin-bottom: 16px;
+      color: var(--color-white);
+      font-family: var(--font-main);
+      font-size: 72px;
+      line-height: 0.96;
+      text-align: center;
+      text-transform: uppercase;
+      @media (min-width:toEm(820.98)){
+        margin-bottom: 24px;
+        font-size: 96px;
+      }
+		}
+
+		// .winners-hero__tabs
+		&__tabs {
+      margin-bottom: 42px;
+      @media (min-width:toEm(820.98)){
+        margin-bottom: 36px;
+      }
+		}
+
+		// .winners-hero__link
+		&__link {
+      display: flex;
+      width: 100%;
+      margin-inline: auto;
+      @media (min-width:toEm(820.98)){
+        max-width: 291px;
+      }
+		}
+}
+
+.winners-tabs {
+  // .winners-tabs .tabs__navigation
+  .tabs__navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+    @media (min-width:toEm($mobileSmall)){
+       margin-bottom: 12px; 
+    }
+  }
+
+  .tabs__title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 40px;
+    padding: 8px 14px;
+    background-color: var(--color-red-dark);
+    color: var(--color-white);
+    font-size: 16px;
+    line-height: normal;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    @media (min-width:toEm(820.98)){
+      padding: 10px 20px;
+    }
+    &.--tab-active {
+      background-color: var(--color-white);
+      color: var(--color-red-dark);
+    }
+  }
+
+  .tabs__content {
+    // border: 0;
+    // padding: 0;
+  }
+}
+
+.winners-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 998px;
+  margin-inline: auto;
+  border-radius: 30px;
+  padding: 42px 32px;
+  gap: 24px;
+  background-color: var(--color-white);
+  text-align: center;
+  @media (min-width:toEm(820.98)){
+    padding: 60px;
+  }
+}
+
+// .winners-prize
+.winners-prize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-transform: uppercase;
+
+  // .winners-prize__pic
+  &__pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--color-white);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  // .winners-prize__name
+  &__name {
+    font-family: var(--font-accent);
+    font-size: 18px;
+    line-height: 1;
+    @media (min-width:toEm(820.98)){
+      font-size: 20px;
+    }
+  }
+
+  // .winners-prize--grand
+  &--grand {
+    @media (min-width:toEm(820.98)){
+      .winners-prize__pic {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}
+
+.winners-weeks {
+		// .winners-weeks__wrapper
+		&__wrapper {
+      width: 100%;
+      .winners-prize {
+        margin-bottom: 24px; 
+      }
+		}
+}
+
+
+.winners-weeks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  row-gap: 12px;
+  column-gap: 24px;
+  @media (min-width:toEm(820.98)){
+    row-gap: 24px;
+  }
+
+  // .winners-weeks--week
+  &--week {
+    .winners-week {
+      width: 100%;
+      max-width: 260px;
+      @media (min-width:toEm($mobileSmall)){
+        max-width: 200px;
+      }
+    }
+  }
+  
+  // .winners-weeks--grand
+  &--grand {
+    .winners-week {
+      width: 100%;
+      max-width: 260px;
+      @media (min-width:toEm($mobileSmall)){
+        max-width: 237px;
+      }
+    }
+    @media (min-width:toEm(820.98)){
+      // grid-template-columns: 1fr;
+      row-gap: 16px;
+    }
+  }
+}
+
+// .winners-week
+.winners-week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  
+  // width: 100%;
+  // max-width: 22%;
+  // .winners-week__date
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-accent);
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  // .winners-week__icon
+  &__icon {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    background: url("@img/icons/calendar.svg") center / contain no-repeat;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Список переможців
+// ---------------------------------------------------------------------------
+.winners-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+
+  // .winners-list__item
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18px;
+    gap: 6px;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  // .winners-list__name
+  &__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    text-align: left;
+  }
+
+  // .winners-list__phone
+  &__phone {
+    white-space: nowrap;
+  }
+
+  // .winners-list__play
+  &__play {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    background: url("@img/icons/play.svg") center / contain no-repeat;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    @media (any-hover: hover){
+      &:hover{
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// «Розіграш ще в процесі». Лежить під списками; коли списків немає —
+// лишається сам і виглядає як порожній стан із макета
+// ---------------------------------------------------------------------------
+.winners-process {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  text-transform: uppercase;
+
+  // .winners-process__pic
+  &__pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  // .winners-process__title
+  &__title {
+    font-family: var(--font-accent);
+    font-size: 18px;
+    line-height: 1;
+    @media (min-width:toEm(820.98)){
+      font-size: 20px;
+    }
+  }
+
+  // .winners-process__text
+  &__text {
+    font-size: 16px;
+    line-height: normal;
+    @media (min-width:toEm(820.98)){
+      font-size: 20px;
+    }
+  }
+
+  // .winners-process__actions
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 594px;
+    gap: 4px;
+    @media (min-width:toEm(820.98)){
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      .btn {
+        flex: 0 0 291px;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Місячний гранд: три категорії
+// ---------------------------------------------------------------------------
+.winners-grand {
+  display: grid;
+  width: 100%;
+  gap: 32px;
+  @media (min-width:toEm(820.98)){
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 796px;
+    column-gap: 42px;
+  }
+
+  // .winners-grand__col
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Попап з відео. Дизайну немає — тримаємось загального стилю сторінок
+// ---------------------------------------------------------------------------
+.popup--video {
+  .popup__video-wr {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .popup__body {
+    // position: relative;
+    // width: 100%;
+    // max-width: 900px;
+    // padding: 0;
+    // background-color: var(--color-burgundy);
+    // overflow: hidden;
+  }
+
+  .popup__video {
+    display: block;
+    width: 100%;
+    max-height: 80vh;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+  }
+
+  .popup__close {
+    position: absolute;
+    z-index: 2;
+    top: -54px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+    padding: 10px;
+    svg {
+      width: 100%;
+      height: auto;
+    }
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    @media (any-hover: hover){
+      &:hover{
+        transform: rotate(90deg);
+      }
+    }
+  }
 }

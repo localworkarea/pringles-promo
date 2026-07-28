@@ -3,7 +3,6 @@
 !/src/
 !/template_modules/
 !/docs/
-!/dist/
 !/template.config.js
 !/vite.config.js
 !/package.json
@@ -29,7 +28,7 @@ yarn-error.log*
 
 *.md
 
-
+/dist/
 .vscode/
 .idea/
 .DS_Store

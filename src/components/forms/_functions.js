@@ -19,22 +19,31 @@ export let formValidate = {
 	validateInput(formRequiredItem) {
 		let error = 0;
 		if (formRequiredItem.type === "email") {
-			formRequiredItem.value = formRequiredItem.value.replace(" ", "");
-			if (this.emailTest(formRequiredItem)) {
+			// formRequiredItem.value = formRequiredItem.value.replace(" ", "");
+			// if (this.emailTest(formRequiredItem)) {
+			// 	this.addError(formRequiredItem);
+			// 	this.removeSuccess(formRequiredItem);
+			// 	error++;
+			// } else {
+			// 	this.removeError(formRequiredItem);
+			// 	this.addSuccess(formRequiredItem);
+			// }
+		} 
+		else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
+			// this.addError(formRequiredItem);
+			// this.removeSuccess(formRequiredItem);
+			// error++;
+		} 
+		else {
+			if (!formRequiredItem.value.trim()) {
 				this.addError(formRequiredItem);
 				this.removeSuccess(formRequiredItem);
 				error++;
-			} else {
-				this.removeError(formRequiredItem);
-				this.addSuccess(formRequiredItem);
-			}
-		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
-			this.addError(formRequiredItem);
-			this.removeSuccess(formRequiredItem);
-			error++;
-		} else {
-			if (!formRequiredItem.value.trim()) {
-				this.addError(formRequiredItem);
+			} else if (formRequiredItem.hasAttribute('pattern') && !formRequiredItem.checkValidity()) {
+				// Поле заповнене, але не відповідає шаблону. Форма стоїть
+				// з novalidate — це глушить лише спливашки браузера,
+				// checkValidity() працює
+				this.addError(formRequiredItem, formRequiredItem.dataset.attFormErrtextPattern);
 				this.removeSuccess(formRequiredItem);
 				error++;
 			} else {
@@ -44,13 +53,15 @@ export let formValidate = {
 		}
 		return error;
 	},
-	addError(formRequiredItem) {
+	// message — необов'язковий: без нього береться data-att-form-errtext
+	addError(formRequiredItem, message) {
 		formRequiredItem.classList.add('--form-error');
 		formRequiredItem.parentElement.classList.add('--form-error');
 		let inputError = formRequiredItem.parentElement.querySelector('[data-att-form-error]');
 		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-		if (formRequiredItem.dataset.attFormErrtext) {
-			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div data-att-form-error>${formRequiredItem.dataset.attFormErrtext}</div>`);
+		const text = message || formRequiredItem.dataset.attFormErrtext;
+		if (text) {
+			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div data-att-form-error>${text}</div>`);
 		}
 	},
 	removeError(formRequiredItem) {
@@ -82,20 +93,20 @@ export let formValidate = {
 				formValidate.removeSuccess(el)
 				formValidate.removeError(el)
 			}
-			let checkboxes = form.querySelectorAll('input[type="checkbox"]')
-			if (checkboxes.length) {
-				checkboxes.forEach(checkbox => {
-					checkbox.checked = false
-				})
-			}
-			if (window['attSelect']) {
-				let selects = form.querySelectorAll('select[data-att-select]')
-				if (selects.length) {
-					selects.forEach(select => {
-						window['attSelect'].selectBuild(select)
-					})
-				}
-			}
+			// let checkboxes = form.querySelectorAll('input[type="checkbox"]')
+			// if (checkboxes.length) {
+			// 	checkboxes.forEach(checkbox => {
+			// 		checkbox.checked = false
+			// 	})
+			// }
+			// if (window['attSelect']) {
+			// 	let selects = form.querySelectorAll('select[data-att-select]')
+			// 	if (selects.length) {
+			// 		selects.forEach(select => {
+			// 			window['attSelect'].selectBuild(select)
+			// 		})
+			// 	}
+			// }
 		}, 0)
 	},
 	emailTest(formRequiredItem) {

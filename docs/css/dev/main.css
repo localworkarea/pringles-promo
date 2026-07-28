@@ -155,6 +155,7 @@ body {
 }
 
 .btn {
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -434,6 +435,10 @@ body {
     background-color: var(--color-white);
   }
   .btn--accent:hover {
+    background-color: var(--color-red-dark);
+    color: var(--color-white);
+  }
+  .btn--yellow-hover:hover {
     background-color: var(--color-red-dark);
     color: var(--color-white);
   }

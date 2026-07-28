@@ -1,9 +1,20 @@
 
-import { gotoBlock, FLS } from "@js/common/functions.js";
+// import { gotoBlock, FLS } from "@js/common/functions.js";
 // Підключення функціоналу модуля форм
 import { formValidate } from "../_functions.js";
+// Покрокова форма та завантаження файлу
+import { formStepsInit } from "./steps.js";
+import { formFileInit } from "./file.js";
+import { formPhoneInit } from "./phone.js";
 
 import './form.scss'
+
+// Позначка про відправку на <html>: клас беремо з data-att-form-sentclass,
+// стилі показу/приховування лишаються на стороні сторінки
+document.addEventListener("formSent", event => {
+	const sentClass = event.detail.form.dataset.attFormSentclass
+	if (sentClass) document.documentElement.classList.add(sentClass)
+})
 
 function formInit() {
 	// Відправлення форм
@@ -54,7 +65,7 @@ function formInit() {
 				e.preventDefault();
 				if (form.querySelector('.--form-error') && form.hasAttribute('data-att-form-gotoerr')) {
 					const formGoToErrorClass = form.dataset.attFormGotoerr ? form.dataset.attFormGotoerr : '.--form-error';
-					gotoBlock(formGoToErrorClass);
+					// gotoBlock(formGoToErrorClass);
 				}
 			}
 		}
@@ -106,6 +117,10 @@ function formInit() {
 	}
 	formSubmit()
 	formFieldsInit()
+	formFileInit()
+	formPhoneInit()
+	// Кроки — останніми: стан кнопки має врахувати вже готові поля
+	formStepsInit()
 }
 document.querySelector('[data-att-form]') ?
 	window.addEventListener('load', formInit) : null
