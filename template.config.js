@@ -54,7 +54,7 @@ export default {
 		pxtorem: true,
 		critical: false,
 		codesplit: true,
-		devfiles: false,
+		devfiles: true,
 	},
 	fonts: {
 		iconsfont: false,
@@ -87,7 +87,7 @@ export default {
 	},
 	js: {
 		hotmodules: true,
-		devfiles: false,
+		devfiles: true,
 		bundle: {
 			// Збирає в один JS та один CSS файли
 			// незалежно від налаштування
